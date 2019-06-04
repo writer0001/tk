@@ -277,6 +277,8 @@ CREATE TABLE `test_paper` (
   `tp_question_id` varchar(200) DEFAULT NULL,
   `tp_update_time` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   `tp_status` tinyint(1) DEFAULT NULL,
+  `tp_info` varchar(200) DEFAULT NULL,
+  `tp_score` int(11) DEFAULT NULL,
   PRIMARY KEY (`tp_id`),
   KEY `tp_t_name` (`tp_t_name`),
   CONSTRAINT `test_paper_ibfk_1` FOREIGN KEY (`tp_t_name`) REFERENCES `teacher` (`t_name`)
@@ -362,4 +364,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2019-06-04 16:04:57
+-- Dump completed on 2019-06-04 16:26:47
