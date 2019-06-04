@@ -148,6 +148,32 @@ LOCK TABLES `question_and_answer` WRITE;
 UNLOCK TABLES;
 
 --
+-- Table structure for table `root`
+--
+
+DROP TABLE IF EXISTS `root`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `root` (
+  `r_id` int(11) NOT NULL AUTO_INCREMENT,
+  `r_name` varchar(50) DEFAULT NULL,
+  `r_pass` varchar(50) DEFAULT NULL,
+  `r_email` varchar(50) DEFAULT NULL,
+  PRIMARY KEY (`r_id`),
+  UNIQUE KEY `r_name` (`r_name`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `root`
+--
+
+LOCK TABLES `root` WRITE;
+/*!40000 ALTER TABLE `root` DISABLE KEYS */;
+/*!40000 ALTER TABLE `root` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
 -- Table structure for table `single_choice`
 --
 
@@ -249,6 +275,8 @@ CREATE TABLE `test_paper` (
   `tp_name` varchar(50) DEFAULT NULL,
   `tp_t_name` varchar(50) DEFAULT NULL,
   `tp_question_id` varchar(200) DEFAULT NULL,
+  `tp_update_time` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  `tp_status` tinyint(1) DEFAULT NULL,
   PRIMARY KEY (`tp_id`),
   KEY `tp_t_name` (`tp_t_name`),
   CONSTRAINT `test_paper_ibfk_1` FOREIGN KEY (`tp_t_name`) REFERENCES `teacher` (`t_name`)
@@ -334,4 +362,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2019-06-03 20:57:48
+-- Dump completed on 2019-06-04 16:04:57
