@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.test.dao.SCQuestionDao">
+
+	<!-- 插入单选题到数据库 -->
+	<insert id="saveSCQuestion" parameterType="scquestion">
+		insert into single_choice(
+			sc_id,
+			sc_subject,
+			sc_point,
+			sc_stem,
+			sc_option1,
+			sc_option2,
+			sc_option3,
+			sc_option4,
+			sc_answer,
+			sc_analysis,
+			sc_t_name,
+			sc_tb_id,
+			sc_ct_id)
+		values(
+			#{id},
+			#{subjectId},
+			#{point},
+			#{stem},
+			#{option1},
+			#{option2},
+			#{option3},
+			#{option4},
+			#{answer},
+			#{analysis},
+			#{tname},
+			#{tbId},
+			#{ctId}
+			
+		)
+		
+		
+		
+		
+	
+	</insert>
+</mapper>
