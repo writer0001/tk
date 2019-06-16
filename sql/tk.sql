@@ -1,50 +1,40 @@
--- MySQL dump 10.13  Distrib 5.7.20, for Win64 (x86_64)
---
--- Host: localhost    Database: tk
--- ------------------------------------------------------
--- Server version	5.7.20
+/*
+Navicat MySQL Data Transfer
 
-/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
-/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
-/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
-/*!40101 SET NAMES utf8 */;
-/*!40103 SET @OLD_TIME_ZONE=@@TIME_ZONE */;
-/*!40103 SET TIME_ZONE='+00:00' */;
-/*!40014 SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0 */;
-/*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
-/*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
-/*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
+Source Server         : localhost_3306
+Source Server Version : 50721
+Source Host           : localhost:3306
+Source Database       : tk
 
---
--- Table structure for table `chapter_title`
---
+Target Server Type    : MYSQL
+Target Server Version : 50721
+File Encoding         : 65001
 
+Date: 2019-06-16 16:29:05
+*/
+
+SET FOREIGN_KEY_CHECKS=0;
+
+-- ----------------------------
+-- Table structure for `chapter_title`
+-- ----------------------------
 DROP TABLE IF EXISTS `chapter_title`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `chapter_title` (
   `ct_id` int(11) NOT NULL AUTO_INCREMENT,
   `ct_name` varchar(50) DEFAULT NULL,
   PRIMARY KEY (`ct_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-/*!40101 SET character_set_client = @saved_cs_client */;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
 
---
--- Dumping data for table `chapter_title`
---
+-- ----------------------------
+-- Records of chapter_title
+-- ----------------------------
+INSERT INTO `chapter_title` VALUES ('1', 'Oracle12c数据库应用与开发');
+INSERT INTO `chapter_title` VALUES ('2', 'JavaEE企业级应用开发教程');
 
-LOCK TABLES `chapter_title` WRITE;
-/*!40000 ALTER TABLE `chapter_title` DISABLE KEYS */;
-/*!40000 ALTER TABLE `chapter_title` ENABLE KEYS */;
-UNLOCK TABLES;
-
---
--- Table structure for table `fill_in_the_blank`
---
-
+-- ----------------------------
+-- Table structure for `fill_in_the_blank`
+-- ----------------------------
 DROP TABLE IF EXISTS `fill_in_the_blank`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `fill_in_the_blank` (
   `fb_id` int(11) NOT NULL AUTO_INCREMENT,
   `fb_subject` int(11) DEFAULT NULL,
@@ -63,24 +53,15 @@ CREATE TABLE `fill_in_the_blank` (
   CONSTRAINT `fill_in_the_blank_ibfk_2` FOREIGN KEY (`fb_tb_id`) REFERENCES `textbook` (`tb_id`),
   CONSTRAINT `fill_in_the_blank_ibfk_3` FOREIGN KEY (`fb_ct_id`) REFERENCES `teacher` (`t_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-/*!40101 SET character_set_client = @saved_cs_client */;
 
---
--- Dumping data for table `fill_in_the_blank`
---
+-- ----------------------------
+-- Records of fill_in_the_blank
+-- ----------------------------
 
-LOCK TABLES `fill_in_the_blank` WRITE;
-/*!40000 ALTER TABLE `fill_in_the_blank` DISABLE KEYS */;
-/*!40000 ALTER TABLE `fill_in_the_blank` ENABLE KEYS */;
-UNLOCK TABLES;
-
---
--- Table structure for table `multiple_choice`
---
-
+-- ----------------------------
+-- Table structure for `multiple_choice`
+-- ----------------------------
 DROP TABLE IF EXISTS `multiple_choice`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `multiple_choice` (
   `mc_id` int(11) NOT NULL AUTO_INCREMENT,
   `mc_subject` int(11) DEFAULT NULL,
@@ -100,24 +81,15 @@ CREATE TABLE `multiple_choice` (
   CONSTRAINT `multiple_choice_ibfk_2` FOREIGN KEY (`mc_tb_id`) REFERENCES `textbook` (`tb_id`),
   CONSTRAINT `multiple_choice_ibfk_3` FOREIGN KEY (`mc_ct_id`) REFERENCES `teacher` (`t_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-/*!40101 SET character_set_client = @saved_cs_client */;
 
---
--- Dumping data for table `multiple_choice`
---
+-- ----------------------------
+-- Records of multiple_choice
+-- ----------------------------
 
-LOCK TABLES `multiple_choice` WRITE;
-/*!40000 ALTER TABLE `multiple_choice` DISABLE KEYS */;
-/*!40000 ALTER TABLE `multiple_choice` ENABLE KEYS */;
-UNLOCK TABLES;
-
---
--- Table structure for table `question_and_answer`
---
-
+-- ----------------------------
+-- Table structure for `question_and_answer`
+-- ----------------------------
 DROP TABLE IF EXISTS `question_and_answer`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `question_and_answer` (
   `qa_id` int(11) NOT NULL AUTO_INCREMENT,
   `qa_subject` int(11) DEFAULT NULL,
@@ -136,24 +108,15 @@ CREATE TABLE `question_and_answer` (
   CONSTRAINT `question_and_answer_ibfk_2` FOREIGN KEY (`qa_tb_id`) REFERENCES `textbook` (`tb_id`),
   CONSTRAINT `question_and_answer_ibfk_3` FOREIGN KEY (`qa_ct_id`) REFERENCES `teacher` (`t_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-/*!40101 SET character_set_client = @saved_cs_client */;
 
---
--- Dumping data for table `question_and_answer`
---
+-- ----------------------------
+-- Records of question_and_answer
+-- ----------------------------
 
-LOCK TABLES `question_and_answer` WRITE;
-/*!40000 ALTER TABLE `question_and_answer` DISABLE KEYS */;
-/*!40000 ALTER TABLE `question_and_answer` ENABLE KEYS */;
-UNLOCK TABLES;
-
---
--- Table structure for table `root`
---
-
+-- ----------------------------
+-- Table structure for `root`
+-- ----------------------------
 DROP TABLE IF EXISTS `root`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `root` (
   `r_id` int(11) NOT NULL AUTO_INCREMENT,
   `r_name` varchar(50) DEFAULT NULL,
@@ -162,24 +125,15 @@ CREATE TABLE `root` (
   PRIMARY KEY (`r_id`),
   UNIQUE KEY `r_name` (`r_name`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-/*!40101 SET character_set_client = @saved_cs_client */;
 
---
--- Dumping data for table `root`
---
+-- ----------------------------
+-- Records of root
+-- ----------------------------
 
-LOCK TABLES `root` WRITE;
-/*!40000 ALTER TABLE `root` DISABLE KEYS */;
-/*!40000 ALTER TABLE `root` ENABLE KEYS */;
-UNLOCK TABLES;
-
---
--- Table structure for table `single_choice`
---
-
+-- ----------------------------
+-- Table structure for `single_choice`
+-- ----------------------------
 DROP TABLE IF EXISTS `single_choice`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `single_choice` (
   `sc_id` int(11) NOT NULL AUTO_INCREMENT,
   `sc_subject` int(11) DEFAULT NULL,
@@ -198,25 +152,18 @@ CREATE TABLE `single_choice` (
   CONSTRAINT `single_choice_ibfk_1` FOREIGN KEY (`sc_t_name`) REFERENCES `teacher` (`t_name`),
   CONSTRAINT `single_choice_ibfk_2` FOREIGN KEY (`sc_tb_id`) REFERENCES `textbook` (`tb_id`),
   CONSTRAINT `single_choice_ibfk_3` FOREIGN KEY (`sc_ct_id`) REFERENCES `teacher` (`t_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-/*!40101 SET character_set_client = @saved_cs_client */;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
 
---
--- Dumping data for table `single_choice`
---
+-- ----------------------------
+-- Records of single_choice
+-- ----------------------------
+INSERT INTO `single_choice` VALUES ('1', '1', '回溯法', '归并排序采用的算法设计方法属于（）。', 'A.归纳法', 'B', '暂无解析', '余雨萍', '1', '1');
+INSERT INTO `single_choice` VALUES ('2', '2', '回溯法', '归并排序采用的算法设计方法属于（）。', 'A.归纳法', 'B', '暂无解析', '余雨萍', '1', '1');
 
-LOCK TABLES `single_choice` WRITE;
-/*!40000 ALTER TABLE `single_choice` DISABLE KEYS */;
-/*!40000 ALTER TABLE `single_choice` ENABLE KEYS */;
-UNLOCK TABLES;
-
---
--- Table structure for table `subject`
---
-
+-- ----------------------------
+-- Table structure for `subject`
+-- ----------------------------
 DROP TABLE IF EXISTS `subject`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `subject` (
   `s_id` int(11) NOT NULL,
   `s_name` varchar(50) DEFAULT NULL,
@@ -226,24 +173,15 @@ CREATE TABLE `subject` (
   KEY `s_tb_id` (`s_tb_id`),
   CONSTRAINT `subject_ibfk_1` FOREIGN KEY (`s_tb_id`) REFERENCES `textbook` (`tb_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-/*!40101 SET character_set_client = @saved_cs_client */;
 
---
--- Dumping data for table `subject`
---
+-- ----------------------------
+-- Records of subject
+-- ----------------------------
 
-LOCK TABLES `subject` WRITE;
-/*!40000 ALTER TABLE `subject` DISABLE KEYS */;
-/*!40000 ALTER TABLE `subject` ENABLE KEYS */;
-UNLOCK TABLES;
-
---
--- Table structure for table `teacher`
---
-
+-- ----------------------------
+-- Table structure for `teacher`
+-- ----------------------------
 DROP TABLE IF EXISTS `teacher`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `teacher` (
   `t_id` int(11) NOT NULL AUTO_INCREMENT,
   `t_name` varchar(50) NOT NULL,
@@ -251,25 +189,17 @@ CREATE TABLE `teacher` (
   `t_email` varchar(100) DEFAULT NULL,
   PRIMARY KEY (`t_id`),
   UNIQUE KEY `t_name` (`t_name`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-/*!40101 SET character_set_client = @saved_cs_client */;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
 
---
--- Dumping data for table `teacher`
---
+-- ----------------------------
+-- Records of teacher
+-- ----------------------------
+INSERT INTO `teacher` VALUES ('1', '余雨萍', 'admin', null);
 
-LOCK TABLES `teacher` WRITE;
-/*!40000 ALTER TABLE `teacher` DISABLE KEYS */;
-/*!40000 ALTER TABLE `teacher` ENABLE KEYS */;
-UNLOCK TABLES;
-
---
--- Table structure for table `test_paper`
---
-
+-- ----------------------------
+-- Table structure for `test_paper`
+-- ----------------------------
 DROP TABLE IF EXISTS `test_paper`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `test_paper` (
   `tp_id` int(11) NOT NULL AUTO_INCREMENT,
   `tp_name` varchar(50) DEFAULT NULL,
@@ -283,49 +213,33 @@ CREATE TABLE `test_paper` (
   KEY `tp_t_name` (`tp_t_name`),
   CONSTRAINT `test_paper_ibfk_1` FOREIGN KEY (`tp_t_name`) REFERENCES `teacher` (`t_name`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-/*!40101 SET character_set_client = @saved_cs_client */;
 
---
--- Dumping data for table `test_paper`
---
+-- ----------------------------
+-- Records of test_paper
+-- ----------------------------
 
-LOCK TABLES `test_paper` WRITE;
-/*!40000 ALTER TABLE `test_paper` DISABLE KEYS */;
-/*!40000 ALTER TABLE `test_paper` ENABLE KEYS */;
-UNLOCK TABLES;
-
---
--- Table structure for table `textbook`
---
-
+-- ----------------------------
+-- Table structure for `textbook`
+-- ----------------------------
 DROP TABLE IF EXISTS `textbook`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `textbook` (
   `tb_id` int(11) NOT NULL AUTO_INCREMENT,
   `tb_name` varchar(50) DEFAULT NULL,
   `tb_chapter_num` int(11) DEFAULT NULL,
   `tb_ct_id` varchar(100) DEFAULT NULL,
   PRIMARY KEY (`tb_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-/*!40101 SET character_set_client = @saved_cs_client */;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
 
---
--- Dumping data for table `textbook`
---
+-- ----------------------------
+-- Records of textbook
+-- ----------------------------
+INSERT INTO `textbook` VALUES ('1', 'Oracle12c数据库应用与开发', '1', '1');
+INSERT INTO `textbook` VALUES ('2', 'JavaEE企业级应用开发教程', '1', '1');
 
-LOCK TABLES `textbook` WRITE;
-/*!40000 ALTER TABLE `textbook` DISABLE KEYS */;
-/*!40000 ALTER TABLE `textbook` ENABLE KEYS */;
-UNLOCK TABLES;
-
---
--- Table structure for table `true_or_false`
---
-
+-- ----------------------------
+-- Table structure for `true_or_false`
+-- ----------------------------
 DROP TABLE IF EXISTS `true_or_false`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `true_or_false` (
   `tf_id` int(11) NOT NULL AUTO_INCREMENT,
   `tf_subject` int(11) DEFAULT NULL,
@@ -344,24 +258,7 @@ CREATE TABLE `true_or_false` (
   CONSTRAINT `true_or_false_ibfk_2` FOREIGN KEY (`tf_tb_id`) REFERENCES `textbook` (`tb_id`),
   CONSTRAINT `true_or_false_ibfk_3` FOREIGN KEY (`tf_ct_id`) REFERENCES `teacher` (`t_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-/*!40101 SET character_set_client = @saved_cs_client */;
 
---
--- Dumping data for table `true_or_false`
---
-
-LOCK TABLES `true_or_false` WRITE;
-/*!40000 ALTER TABLE `true_or_false` DISABLE KEYS */;
-/*!40000 ALTER TABLE `true_or_false` ENABLE KEYS */;
-UNLOCK TABLES;
-/*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
-
-/*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
-/*!40014 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS */;
-/*!40014 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS */;
-/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
-/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
-/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
-/*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
-
--- Dump completed on 2019-06-04 16:26:47
+-- ----------------------------
+-- Records of true_or_false
+-- ----------------------------
